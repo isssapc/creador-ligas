@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>{{jornada.nombre}}</h2>
+
+
+  <div class="form-group row">
+    <label for="local" class="col-sm-2 col-form-label">Partido</label>
+    <div class="col-sm-10">
+      <select class="form-control" name="local" id="local" [(ngModel)]="local_selected">
+        <option [value]="equipo.id_equipo" *ngFor="let equipo of equipos">{{equipo.nombre}}</option>
+      </select>
+
+      <select class="form-control" name="visitante" id="visitante" [(ngModel)]="visitante_selected">
+        <option [value]="equipo.id_equipo" *ngFor="let equipo of equipos">{{equipo.nombre}}</option>
+      </select>
+
+      <button class="btn btn-primary" (click)="addPartido(local_selected, visitante_selected)">Add</button>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col">
+      <h3>Partidos</h3>
+      <div class="list-group">
+        <a routerLink="/partido/{{partido.id_partido}}" class="list-group-item list-group-item-action" *ngFor="let partido of partidos">
+          <div>
+            <span>{{partido.local}}</span>
+            <span>{{partido.visitante}}</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

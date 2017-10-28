@@ -1,0 +1,20 @@
+<div class="container">
+
+  <h2>{{liga.nombre}}</h2>
+  <div class="row">
+
+    <div class="col-6">
+      <h3>Jornadas</h3>
+      <div class="list-group">
+        <a routerLink="/jornada/{{jornada.id_jornada}}" class="list-group-item list-group-item-action" *ngFor="let jornada of jornadas">{{jornada.nombre}}</a>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <h3>Equipos</h3>
+      <div class="list-group">
+        <a routerLink="/equipo/{{equipo.id_equipo}}" class="list-group-item list-group-item-action" *ngFor="let equipo of equipos">{{equipo.nombre}}</a>
+      </div>
+    </div>
+  </div>
+</div>
