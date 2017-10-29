@@ -4,9 +4,9 @@ import { LigaService } from '../../services/liga.service';
 import { EquipoService } from '../../services/equipo.service';
 import { JornadaService } from '../../services/jornada.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
-import 'rxjs/add/observable/of';
-import { Observable } from 'rxjs/Observable';
+import { of } from "rxjs/observable/of";
+/* import 'rxjs/add/observable/of'; */
+/* import { Observable } from 'rxjs/Observable'; */
 
 
 
@@ -49,7 +49,8 @@ export class LigasComponent implements OnInit {
           this.temporada_selected = params.get("temporada");
           return this.ligaSrv.getLigasTemporada(this.temporada_selected);
         } else {
-          return Observable.of([]);
+          this.temporada_selected = "";
+          return of([]);
         }
 
       }).subscribe(ligas => {
@@ -136,8 +137,10 @@ export class LigasComponent implements OnInit {
             this.ligas = ligas;
     
           }); */
+    if (id_temporada) {
+      this.router.navigate([".", { temporada: id_temporada }]);
+    }
 
-    this.router.navigate([".", { temporada: id_temporada }]);
   }
 
   getLiga(id_liga) {

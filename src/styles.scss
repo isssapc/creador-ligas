@@ -1,1 +1,16 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+//fix bootstrap
+button:focus{
+    outline: none;
+}
+
+.form-control:focus{
+    box-shadow: none;
+}
+
+.fab {
+    position: absolute !important;
+    bottom: 100px;
+    right: 20px;
+}
