@@ -11,6 +11,7 @@ import { ConfigService } from './config.service';
 @Injectable()
 export class AuthService {
   url:string;
+  redirectUrl: string;
 
   constructor(
     private config: ConfigService,

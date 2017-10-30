@@ -26,6 +26,14 @@ import { JugadorService } from './services/jugador.service';
 import { TemporadasComponent } from './components/temporadas/temporadas.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LigaComponent } from './components/liga/liga.component';
+import { CrearTemporadaComponent } from './dialogos/crear-temporada/crear-temporada.component';
+import { CrearLigaComponent } from './dialogos/crear-liga/crear-liga.component';
+import { CrearEquipoComponent } from './dialogos/crear-equipo/crear-equipo.component';
+import { CrearJugadorComponent } from './dialogos/crear-jugador/crear-jugador.component';
+import { CrearJornadaComponent } from './dialogos/crear-jornada/crear-jornada.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthHttp } from 'angular2-jwt';
+import { AuthModule } from './modules/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +46,13 @@ import { LigaComponent } from './components/liga/liga.component';
     JornadaComponent,
     TemporadasComponent,
     LayoutComponent,
-    LigaComponent
+    LigaComponent,
+    CrearTemporadaComponent,
+    CrearLigaComponent,
+    CrearEquipoComponent,
+    CrearJugadorComponent,
+    CrearJornadaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +60,7 @@ import { LigaComponent } from './components/liga/liga.component';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    AuthModule,
     AngularMaterialModule,
     NgbModule.forRoot(),
     AppRoutingModule,
@@ -53,6 +68,7 @@ import { LigaComponent } from './components/liga/liga.component';
 
   ],
   providers: [
+   
     ConfigService,
     AuthService,
     TemporadaService,
@@ -62,6 +78,14 @@ import { LigaComponent } from './components/liga/liga.component';
     PartidoService,
     JugadorService
   ],
+  entryComponents: [
+    CrearTemporadaComponent,
+    CrearLigaComponent,
+    CrearJugadorComponent,
+    CrearEquipoComponent,
+    CrearJornadaComponent
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

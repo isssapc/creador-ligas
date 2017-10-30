@@ -6,12 +6,15 @@ import { LigasComponent } from './components/ligas/ligas.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { TemporadasComponent } from './components/temporadas/temporadas.component';
 import { LigaComponent } from './components/liga/liga.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
 
   {
     path:'',
     component:LayoutComponent,
+    //canActivate: [AuthGuard],
     children:[
       { path: '', redirectTo: 'temporadas', pathMatch: 'full' },
       { path: 'temporadas', component:TemporadasComponent  },
@@ -23,11 +26,10 @@ const routes: Routes = [
     ]
   },
 
-  { path: 'ligas', component: LigasComponent },
-  { path: 'liga/:id_liga/equipo/:id_equipo', component: EquipoComponent },
-  { path: 'liga/:id_liga/jornada/:id_jornada', component: JornadaComponent },
+  { path: 'login', component: LoginComponent },
 
-  { path: '', redirectTo: 'ligas', pathMatch: 'full' },
+  //not found
+  { path: '**', redirectTo: 'login' }
 
 
 ];

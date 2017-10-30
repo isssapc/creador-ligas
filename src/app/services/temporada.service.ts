@@ -4,6 +4,7 @@ import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { ConfigService } from './config.service';
+import { AuthHttp } from 'angular2-jwt';
 
 
 
@@ -15,18 +16,19 @@ export class TemporadaService {
   constructor(
     private config: ConfigService,
     private http: Http,
+    private authHttp: AuthHttp
   ) {
     this.url = this.config.api_url + "temporadas/";
   }
 
   getTemporadas(): Observable<any[]> {
-    return this.http.get(this.url)
+    return this.authHttp.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   createTemporada(temporada) {
-    return this.http.post(this.url + "create_temporada", { temporada: temporada })
+    return this.authHttp.post(this.url + "create_temporada", { temporada: temporada })
       .map(this.extractData)
       .catch(this.handleError);
   }

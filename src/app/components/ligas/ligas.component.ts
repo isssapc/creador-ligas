@@ -5,6 +5,8 @@ import { EquipoService } from '../../services/equipo.service';
 import { JornadaService } from '../../services/jornada.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { of } from "rxjs/observable/of";
+import { MatDialog, MatSnackBar } from '@angular/material';
+import { CrearLigaComponent } from '../../dialogos/crear-liga/crear-liga.component';
 /* import 'rxjs/add/observable/of'; */
 /* import { Observable } from 'rxjs/Observable'; */
 
@@ -35,6 +37,8 @@ export class LigasComponent implements OnInit {
     private jornadaSrv: JornadaService,
     private router: Router,
     private route: ActivatedRoute,
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar,
   ) { }
 
 
@@ -155,6 +159,36 @@ export class LigasComponent implements OnInit {
      this.router.navigate([".", { temporada: this.temporada_selected, liga:id_liga }]); */
 
     this.router.navigate([".", { liga: id_liga }]);
+  }
+
+  createLiga() {
+    let dialogRef = this.dialog.open(CrearLigaComponent, {
+      data: {
+        temporada: this.temporada_selected,
+        ligas:this.ligas
+      },
+      width: "500px"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result) {
+
+        if (result.error) {
+          this.snackBar.open(result.error, "Cerrar", {
+            duration: 2000
+          });
+        } else {
+          this.snackBar.open("Liga Creada", "Cerrar", {
+            duration: 2000
+          });
+        }
+
+      }
+
+
+    });
+
   }
 
 

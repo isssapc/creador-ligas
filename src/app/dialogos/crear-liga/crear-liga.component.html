@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Nueva Liga</h1>
+
+<div mat-dialog-content>
+
+  <form #formCreate="ngForm" id="formCreate" (ngSubmit)="createLiga()">
+
+    <div class="form-group">
+     <!--  <label for="nombre" class="col-form-label">Nombre</label>  -->     
+        <input class="form-control" placeholder="Nombre" [class.is-invalid]="nombre.invalid && (nombre.dirty || nombre.touched)" type="text" #nombre="ngModel"
+          name="nombre" id="nombre" [(ngModel)]="liga.nombre" required>
+        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="invalid-feedback">Escriba un nombre</div>  
+    </div>
+   
+  </form>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">CERRAR</button>
+  <button type="submit" form="formCreate" color="primary" mat-button [disabled]="!formCreate.valid">CREAR</button>
+</div>
