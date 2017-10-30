@@ -4,6 +4,7 @@ import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { ConfigService } from './config.service';
+import { AuthHttp } from 'angular2-jwt';
 
 
 @Injectable()
@@ -13,30 +14,31 @@ export class LigaService {
   constructor(
     private config: ConfigService,
     private http: Http,
+    private authHttp: AuthHttp
   ) {
     this.url = this.config.api_url + "ligas/";
   }
 
   getLigas(): Observable<any[]> {
-    return this.http.get(this.url)
+    return this.authHttp.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   getLigasTemporada(id_temporada): Observable<any[]> {
-    return this.http.get(this.url + "get_ligas_temporada/" + id_temporada)
+    return this.authHttp.get(this.url + "get_ligas_temporada/" + id_temporada)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   getLiga(id_liga) {
-    return this.http.get(this.url + "get_liga/" + id_liga)
+    return this.authHttp.get(this.url + "get_liga/" + id_liga)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   createLiga(liga) {
-    return this.http.post(this.url + "create_liga", { liga: liga })
+    return this.authHttp.post(this.url + "create_liga", { liga: liga })
       .map(this.extractData)
       .catch(this.handleError);
   }

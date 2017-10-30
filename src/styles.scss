@@ -16,13 +16,15 @@ button:focus{
 }
 
 .fab {
-    position: absolute !important;
+    position: fixed !important;
     bottom: 100px;
     right: 20px;
+    z-index: 100;
 }
 
 .fab1 {
-    position: absolute !important;
+    position: fixed !important;
     bottom: 166px;
     right: 20px;
+    z-index: 100;
 }

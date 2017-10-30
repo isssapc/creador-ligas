@@ -7,7 +7,7 @@
     <div class="form-group row">
       <label for="temporada" class="col-sm-2 col-form-label">Temporada</label>
       <div class="col-sm-10">
-  <!--       <div class="input-group">
+        <!--       <div class="input-group">
           <input type="text" class="form-control" #temporada id="temporada" placeholder="Temporada">
           <span class="input-group-btn">
             <button class="btn btn-secondary" type="button" (click)="addTemporada(temporada.value)">Add</button>
@@ -19,7 +19,7 @@
         </select>
       </div>
     </div>
-     <!--
+    <!--
     <div class="form-group row">
       <label for="liga" class="col-sm-2 col-form-label">Liga</label>
       <div class="col-sm-10">
@@ -75,19 +75,22 @@
 
 
 
-  <h2 class="text-center">Ligas</h2>
-  
-    <div class="row justify-content-center">
-  
-      <div class="col-12 col-lg-6">
-  
-        <div class="list-group">
+ <!--  <h2 class="text-center">Ligas</h2> -->
+
+  <div class="row justify-content-center">
+
+    <div class="col-12 col-lg-6">
+
+      <div class="card">
+        <h5 class="card-header">Ligas</h5>
+        <div class="list-group list-group-flush">
           <a [routerLink]="['/liga', liga.id_liga]" class="list-group-item list-group-item-action" *ngFor="let liga of ligas">{{liga.nombre}}</a>
         </div>
-  
       </div>
-  
+
     </div>
+
+  </div>
 
 
 

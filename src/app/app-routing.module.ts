@@ -14,9 +14,9 @@ const routes: Routes = [
   {
     path:'',
     component:LayoutComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children:[
-      { path: '', redirectTo: 'temporadas', pathMatch: 'full' },
+      //{ path: '', redirectTo: 'temporadas', pathMatch: 'full' },
       { path: 'temporadas', component:TemporadasComponent  },
       { path: 'ligas', component:LigasComponent  },
       { path: 'liga/:id', component:LigaComponent  },

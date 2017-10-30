@@ -8,6 +8,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
+  username:string;
 
   constructor(
     private auth:AuthService,
@@ -15,6 +16,8 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    let usuario = this.auth.getUsuario();
+    this.username = usuario.nombre.split(" ")[0];
   }
 
   logout() {

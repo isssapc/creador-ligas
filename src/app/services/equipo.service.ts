@@ -4,6 +4,7 @@ import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { ConfigService } from './config.service';
+import { AuthHttp } from 'angular2-jwt';
 
 
 @Injectable()
@@ -14,36 +15,37 @@ export class EquipoService {
   constructor(
     private config: ConfigService,
     private http: Http,
+    private authHttp: AuthHttp
   ) {
     this.url = this.config.api_url + "equipos/";
   }
 
   getEquipos(): Observable<any[]> {
-    return this.http.get(this.url)
+    return this.authHttp.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   getEquipoConJugadores(id_equipo) {
-    return this.http.get(this.url + "get_equipo_con_jugadores/" + id_equipo)
+    return this.authHttp.get(this.url + "get_equipo_con_jugadores/" + id_equipo)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   getEquiposLiga(id_liga): Observable<any[]> {
-    return this.http.get(this.url + "get_equipos_liga/" + id_liga)
+    return this.authHttp.get(this.url + "get_equipos_liga/" + id_liga)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   getJugadores(id_equipo) {
-    return this.http.get(this.url + "get_jugadores/" + id_equipo)
+    return this.authHttp.get(this.url + "get_jugadores/" + id_equipo)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   createEquipo(equipo) {
-    return this.http.post(this.url + "create_equipo", { equipo: equipo })
+    return this.authHttp.post(this.url + "create_equipo", { equipo: equipo })
       .map(this.extractData)
       .catch(this.handleError);
   }

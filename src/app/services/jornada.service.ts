@@ -4,6 +4,7 @@ import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { ConfigService } from './config.service';
+import { AuthHttp } from 'angular2-jwt';
 
 
 @Injectable()
@@ -14,24 +15,25 @@ export class JornadaService {
   constructor(
     private config: ConfigService,
     private http: Http,
+    private authHttp: AuthHttp
   ) {
     this.url = this.config.api_url + "jornadas/";
   }
 
   getJornadas(): Observable<any[]> {
-    return this.http.get(this.url)
+    return this.authHttp.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   getJornadasLiga(id_liga): Observable<any[]> {
-    return this.http.get(this.url + "get_jornadas_liga/" + id_liga)
+    return this.authHttp.get(this.url + "get_jornadas_liga/" + id_liga)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   createJornada(jornada) {
-    return this.http.post(this.url + "create_jornada", { jornada: jornada })
+    return this.authHttp.post(this.url + "create_jornada", { jornada: jornada })
       .map(this.extractData)
       .catch(this.handleError);
   }

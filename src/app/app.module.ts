@@ -34,6 +34,7 @@ import { CrearJornadaComponent } from './dialogos/crear-jornada/crear-jornada.co
 import { LoginComponent } from './components/login/login.component';
 import { AuthHttp } from 'angular2-jwt';
 import { AuthModule } from './modules/auth/auth.module';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,7 @@ import { AuthModule } from './modules/auth/auth.module';
 
   ],
   providers: [
-   
+    AuthGuard,
     ConfigService,
     AuthService,
     TemporadaService,

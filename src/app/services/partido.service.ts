@@ -4,6 +4,7 @@ import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { ConfigService } from './config.service';
+import { AuthHttp } from 'angular2-jwt';
 
 @Injectable()
 export class PartidoService {
@@ -12,24 +13,25 @@ export class PartidoService {
   constructor(
     private config: ConfigService,
     private http: Http,
+    private authHttp: AuthHttp
   ) {
     this.url = this.config.api_url + "partidos/";
   }
 
   getPartidos(): Observable<any[]> {
-    return this.http.get(this.url)
+    return this.authHttp.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   getPartidosJornada(id_jornada) {
-    return this.http.get(this.url + "get_partidos_jornada/" + id_jornada)
+    return this.authHttp.get(this.url + "get_partidos_jornada/" + id_jornada)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   createPartido(partido) {
-    return this.http.post(this.url + "create_partido", { partido: partido })
+    return this.authHttp.post(this.url + "create_partido", { partido: partido })
       .map(this.extractData)
       .catch(this.handleError);
   }

@@ -1,29 +1,40 @@
 <button mat-fab color="primary" class="fab" (click)="createJornada()">
-    <mat-icon>add</mat-icon>
-  </button>
+  <mat-icon>add</mat-icon>
+</button>
 
-  <button mat-fab color="primary" class="fab1" (click)="createEquipo()">
-      <mat-icon>add</mat-icon>
-    </button>
-      
+<button mat-fab color="primary" class="fab1" (click)="createEquipo()">
+  <mat-icon>add</mat-icon>
+</button>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">{{liga.nombre}}</h1>
+    <p class="lead">Temporada 2017.</p>
+  </div>
+</div>
 
 <div class="container">
 
-  <h2>{{liga.nombre}}</h2>
+  <!-- <h2>{{liga.nombre}}</h2> -->
   <div class="row">
 
-    <div class="col-6">
-      <h3>Jornadas</h3>
-      <div class="list-group">
-        <a routerLink="/jornada/{{jornada.id_jornada}}" class="list-group-item list-group-item-action" *ngFor="let jornada of jornadas">{{jornada.nombre}}</a>
+    <div class="col-12 col-md 6">
+      <div class="card">
+        <h5 class="card-header">Jornadas</h5>
+        <div class="list-group list-group-flush">
+          <a routerLink="/jornada/{{jornada.id_jornada}}" class="list-group-item list-group-item-action" *ngFor="let jornada of jornadas">{{jornada.nombre}}</a>
+        </div>
       </div>
     </div>
 
-    <div class="col-6">
-      <h3>Equipos</h3>
-      <div class="list-group">
-        <a routerLink="/equipo/{{equipo.id_equipo}}" class="list-group-item list-group-item-action" *ngFor="let equipo of equipos">{{equipo.nombre}}</a>
+    <div class="col-12 col-md-6 mt-3 mt-md-0">
+      <div class="card">
+        <h5 class="card-header">Equipos</h5>
+        <div class="list-group list-group-flush">
+          <a routerLink="/equipo/{{equipo.id_equipo}}" class="list-group-item list-group-item-action" *ngFor="let equipo of equipos">{{equipo.nombre}}</a>
+        </div>
       </div>
     </div>
+
   </div>
 </div>

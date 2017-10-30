@@ -15,16 +15,19 @@
         <a class="nav-link" routerLink="/ligas">Ligas</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+ <!--    <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
       <button class="btn btn-success my-2 my-sm-0" type="submit" (click)="logout()">Buscar</button>
-    </form>
+    </form> -->
     <!--    </div> -->
   </div>
 
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="" (click)="logout()" >Logout <li class="fa fa-user"></li></a>
+      <a class="nav-link" href="" (click)="logout();false;">
+        <span>{{username}}</span>
+        <li class="fa fa-sign-out"></li>
+      </a>
     </li>
   </ul>
 
