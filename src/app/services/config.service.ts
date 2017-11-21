@@ -20,7 +20,7 @@ export class ConfigService {
     } else {
       //desarrollo -> localhost
       let localhost = "http://localhost:8080/ligas";
-      //let localhost = "http://192.168.0.108:8080/inmobiliaria";      
+      //let localhost = "http://192.168.0.108:8080/ligas";      
       this.api_url = localhost + this.api_url;
       this.upload_image_url = localhost + this.upload_image_url;
 

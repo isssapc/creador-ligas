@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LayoutComponent implements OnInit {
   username:string;
+  isCollapsed=true;
 
   constructor(
     private auth:AuthService,

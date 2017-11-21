@@ -1,5 +1,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
 html, body {
     margin:0; 
     width: 100%;
@@ -17,14 +21,28 @@ button:focus{
 
 .fab {
     position: fixed !important;
-    bottom: 100px;
+    bottom: 20px;
     right: 20px;
     z-index: 100;
 }
 
 .fab1 {
     position: fixed !important;
-    bottom: 166px;
+    bottom: 86px;
     right: 20px;
     z-index: 100;
+}
+
+.container {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.jumbotron {
+
+    margin-bottom: 0;
+
+    @include media-breakpoint-up(sm) {
+        padding: ($jumbotron-padding) ($jumbotron-padding / 2);
+      }
 }
