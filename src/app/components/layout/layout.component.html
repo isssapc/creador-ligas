@@ -1,36 +1,59 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <!--   <div class="container"> -->
-  <button class="navbar-toggler" (click)="isCollapsed= !isCollapsed" type="button"   aria-controls="navbarToggler"
-    [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation">
+  <!-- (click)="isCollapsed= !isCollapsed"  [attr.aria-expanded]="!isCollapsed"-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed" id="navbarToggler">
-    <a class="navbar-brand" href="#">Fútbol</a>
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-      <li class="nav-item">
-        <a class="nav-link" (click)="isCollapsed=true" routerLink="/temporadas">Temporadas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="isCollapsed=true" routerLink="/ligas">Ligas</a>
-      </li>
-    </ul>
-    <!--    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-      <button class="btn btn-success my-2 my-sm-0" type="submit" (click)="logout()">Buscar</button>
-    </form> -->
-    <!--    </div> -->
-  </div>
-
-  <ul class="navbar-nav">
+  <a class="navbar-brand" href="#">Fútbol</a>
+  <!--   <ul class="navbar-nav">
     <li class="nav-item">
-      <!-- el false despues de logout hace un stopPropagation -->
       <a class="nav-link" href="" (click)="logout();false;">
         <span>{{username}}</span>
         <li class="fa fa-sign-out"></li>
       </a>
     </li>
-  </ul>
+  </ul> -->
+
+
+  <!--  [ngbCollapse]="isCollapsed" -->
+  <div class="collapse navbar-collapse" id="navbarToggler">
+
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+      <li class="nav-item">
+        <!-- (click)="isCollapsed=true" -->
+        <a class="nav-link" routerLink="/temporadas">Temporadas</a>
+      </li>
+      <li class="nav-item">
+        <!--  (click)="isCollapsed=true" -->
+        <a class="nav-link" routerLink="/ligas">Ligas</a>
+      </li>
+ <!--      <li class="nav-item">
+        <a class="nav-link" href="" (click)="logout();false;">
+          <span>{{username}}</span>
+          <li class="fa fa-sign-out"></li>
+        </a>
+      </li> -->
+    </ul>
+  <!--   <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+      <button class="btn btn-success my-2 my-sm-0" type="submit" (click)="logout()">Buscar</button>
+    </form> -->
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="" (click)="logout();false;">
+          <span>{{username}}</span>
+          <li class="fa fa-sign-out"></li>
+        </a>
+      </li>
+    </ul>
+
+   
+  </div>
+
+
 
 
 </nav>
