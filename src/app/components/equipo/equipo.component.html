@@ -1,12 +1,16 @@
+<button mat-fab color="primary" class="fab" (click)="createJugador()">
+  <mat-icon>add</mat-icon>
+</button>
+
 <div class="jumbotron jumbotron-fluid">
-  <div class="container py-0"> 
+  <div class="container py-0">
     <h1 class="display-4">{{equipo.nombre}}</h1>
     <p class="lead mb-0">Temporada 2017 / Empresarial</p>
   </div>
 </div>
 
 <div class="container">
- <!--  <h2>{{equipo.nombre}}</h2> -->
+  <!--  <h2>{{equipo.nombre}}</h2> -->
 
 
   <!--   <div class="form-group row">
@@ -24,17 +28,32 @@
   <div class="row">
 
     <div class="col-12 col-md 6">
-      <h3>Jugadores</h3>
-      <div class="list-group">
-        <a routerLink="/jugador/{{jugador.id_jugador}}" class="list-group-item list-group-item-action" *ngFor="let jugador of equipo.jugadores">
-          <span>{{jugador.nombre}}</span>
-        </a>
+      <div class="card">
+        <h5 class="card-header">Jugadores</h5>
+        <div class="list-group">
+          <!-- routerLink="/jugador/{{jugador.id_jugador}}" -->
+          <a href="" class="list-group-item list-group-item-action" *ngFor="let jugador of equipo.jugadores">
+            <span>{{jugador.nombre}}</span>
+            <i class="fa fa-plus" (click)="jugador_selected=jugador;false">Estadísticas</i>
+          </a>
+        </div>
       </div>
     </div>
 
 
     <div class="col-12 col-md-6 mt-3 mt-md-0">
-      <h3>Estadísticas</h3>
+
+      <div class="card">
+        <h5 class="card-header">Estadísticas</h5>
+
+        <div class="card-body">
+
+          <p>Id: {{jugador_selected.id_jugador}}</p>
+          <p>Nombre: {{jugador_selected.nombre}}</p>
+
+        </div>
+
+      </div>
     </div>
 
 

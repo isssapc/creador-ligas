@@ -5,14 +5,15 @@
   <form #formCreate="ngForm" id="formCreate" (ngSubmit)="createJugador()">
 
     <div class="form-group">
- <!--      <label for="nombre" class="col-form-label">Nombre</label> -->
-     
-        <input class="form-control" placeholder="Nombre" [class.is-invalid]="nombre.invalid && (nombre.dirty || nombre.touched)" type="text" #nombre="ngModel"
-          name="nombre" id="nombre" [(ngModel)]="jugador.nombre" required>
-        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="invalid-feedback">Escriba un nombre</div>
-     
+      <!--      <label for="nombre" class="col-form-label">Nombre</label> -->
+
+      <input class="form-control" placeholder="Nombre" [class.is-invalid]="nombre.invalid && (nombre.dirty || nombre.touched)"
+        type="text" #nombre="ngModel" name="nombre" id="nombre" [(ngModel)]="jugador.nombre" required>
+      <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="invalid-feedback">Escriba un nombre</div>
+
     </div>
-   
+    <div>jugador {{jugador|json}}</div>
+
   </form>
 
 </div>
